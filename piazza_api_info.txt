@@ -1,0 +1,61 @@
+**Api to list all your current classes**
+
+Note: These are unsupported apis and are subject to change without notice.
+
+```
+method : user.status
+params : {}
+```
+
+**Response format:**
+```json
+{
+  ...
+  "result": {},
+  "error": null,
+  ...
+}
+```
+
+Field     |Type         |Description|
+:---      |:---         |:---
+result    |String/Hash  |The result of the api call / requested data.
+error     |String       |Null if no error. Descriptive String if error.
+
+The schema returned includes info about your user and your current class 
+enrollment list:
+
+```json
+{
+  "id": "CURRENT_USER_ID",
+  "networks": [
+    ...
+    {
+      ...
+      "course_number": "261",
+      "created_at": "2017-10-03T18:54:09Z",
+      "id": "j8byqj7uqtlcw",
+      "name": "Laboratory 2",
+      "school_id": "h0xus08rkmg4ru",
+      "status": "active",
+      "term": "Fall 2017",
+      ...
+    }
+    ...
+  ]
+}
+```
+
+Each of your currently enrolled classes show up as a map in the `networks` field 
+array listed above. Here are a few descriptive keys for each class that 
+will help match them up with existing lists:
+
+Name             |Type         |Description|
+:---             |:---         |:---
+course_number    |String       |The course number of the class.
+created_at       |String       |Timestamp in UTC when class was created.
+**id**           |String       |The Piazza class id for this class.
+name             |String       |The course name of the class.
+school_id        |String       |The Piazza id for this class's school.
+status           |String       |Whether the class is `active` or `inactive`
+term             |String       |The Piazza class term. For example `Fall 2017`

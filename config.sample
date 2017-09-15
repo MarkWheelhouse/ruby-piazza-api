@@ -1,0 +1,5 @@
+# complete this config file with real values, secure it and then save as config.json
+{
+  "piazza_login" : "user1",
+  "piazza_pwd" : "password1"
+}
