@@ -45,15 +45,14 @@ You need to have ruby 2.0 (or later) installed on your system.
 You can then pull down this repo with:
 
 ```bash
-git clone https://github.com/mjw03/ruby-piazza-api
+git clone https://github.com/MarkWheelhouse/ruby-piazza-api.git
 cd ruby-piazza-api
-python setup.py develop
 ```
 
 ## Contribute
 
-* [Issue Tracker](https://github.com/mjw03/ruby-piazza-api/issues)
-* [Source Code](https://github.com/mjw03/ruby-piazza-api)
+* [Issue Tracker](https://github.com/MarkWheelhouse/ruby-piazza-api/issues)
+* [Source Code](https://github.com/MarkWheelhouse/ruby-piazza-api)
 
 ## License
 
