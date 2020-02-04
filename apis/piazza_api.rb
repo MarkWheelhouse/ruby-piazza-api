@@ -73,17 +73,18 @@ class PiazzaAPI
       cookies_array.push(cookie.split('; ')[0])
     end
     @cookies = cookies_array.join('; ')
+    @session_id = @cookies.split("session_id=")[1].split(";")[0]
     #DEBUG puts "cookies: \n#{@cookies.inspect}\n"
 
     JSON::parse(response.body, :symbolize_names => true)
-  end
-
+  end 
+  
   # Piazza api call wrapper - returns a JSON object
   def apiCall(data)
     uri = @uri.dup
     request = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')
     request['Cookie'] = @cookies
-    request['CSRF-Token'] = @cookies.split(";")[0].split("=")[1]
+    request['CSRF-Token'] = @session_id
     request.body = data.to_json
 
     response = @https.request(request)   
