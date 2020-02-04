@@ -116,6 +116,30 @@ class PiazzaAPI
     self.apiCall(post_data)
     sleep(10)  
   end
+  
+  # set course with class_id to inactive status
+  def deactivate_course(class_id)
+    post_data = {
+      "method": "network.update",
+      "params": { "id": class_id,
+                  "status": "inactive"
+                }
+    }
+    self.apiCall(post_data)
+    sleep(10)        
+  end
+  
+  # set course with class_id to active status
+  def activate_course(class_id)
+    post_data = {
+      "method": "network.update",
+      "params": { "id": class_id,
+                  "status": "active"
+                }
+    }
+    self.apiCall(post_data)
+    sleep(10)              
+  end
 
   # Add students in logins array to the course with class_id
   def add_students(class_id, logins)
