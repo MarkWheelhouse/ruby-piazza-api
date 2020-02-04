@@ -104,6 +104,18 @@ class PiazzaAPI
     }
     self.apiCall(post_data)
   end
+  
+  # change the course number for the course with class_id 
+  def update_course_number(class_id, new_number)
+    post_data = {
+      "method": "network.update",
+      "params": { "id": class_id,
+                  "course_number": new_number
+                }
+    }
+    self.apiCall(post_data)
+    sleep(10)  
+  end
 
   # Add students in logins array to the course with class_id
   def add_students(class_id, logins)
@@ -117,7 +129,7 @@ class PiazzaAPI
       "params": { "from": "ClassSettingsPage",
                   "add_students": add_list,
                   "id": class_id
-              }
+                }
     }
     self.apiCall(post_data)
     sleep(10)
